@@ -2,11 +2,12 @@
 
 # dependencies
 front/view/node_modules
+front/view/node_modules/@babel/*
 front/view/.pnp
 front/view/.pnp.js
 
 # testing
-front/view//coverage
+front/view/coverage
 
 # production
 front/view//build
