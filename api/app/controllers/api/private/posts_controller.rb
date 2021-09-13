@@ -5,7 +5,8 @@ module Api
 
       def index
         posts = Post.order(created_at: :asc)
-        render json: { status: 'SUCCESS', message: 'fetched posts', data: posts }
+        # render json: { status: 'SUCCESS', message: 'fetched posts', data: posts }
+        render json: posts, each_serializer: PostSerializer
       end
 
       def show
