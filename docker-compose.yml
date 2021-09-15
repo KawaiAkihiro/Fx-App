@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - ./api/tmp/db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
