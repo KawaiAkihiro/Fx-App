@@ -10,7 +10,7 @@ module Api
       end
 
       def show
-        render json: { status: 'SUCCESS', message: 'fetched a post', data: @post }
+        render json: @post, serializer: PostSerializer, id:false,  status: :bad_request, meta: { message: 'fetched a post'}
       end
 
       def create
@@ -26,7 +26,7 @@ module Api
         if @post.update(post_params)
           render json: { status: 'SUCCESS', message: 'Updated the post', data: @post }
         else
-          render json: { status: 'ERROR', message: 'not updated', data: @post.data }
+          render json: { status: 'ERROR', message: 'not updated', data: @post.errors }
         end
       end
 

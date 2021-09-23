@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'private' do
       resources :posts
+
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+        users: 'api/private/auth/users'
+      }
+
+      namespace :auth do
+        resources :sessions , only: %i[index]
+      end
     end
   end
 end
